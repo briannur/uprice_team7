@@ -9,15 +9,18 @@ package designpattern.decorator;
  *
  * @author Brian
  */
-public class nasigoreng implements makanan{
+public class nasigoreng extends makananDecorator {
+    public nasigoreng(makanan decoratedMakanan) {
+        this.decoratedMakanan = decoratedMakanan;
+    }
     
     @Override
     public String getDeskripsi() {
-        return "Nasi Goreng";
+        return decoratedMakanan.getDeskripsi() + "Nasi Goreng";
     }
     
     @Override
     public int harga() {
-        return 10000;
+        return decoratedMakanan.harga() + 10000;
     }
 }

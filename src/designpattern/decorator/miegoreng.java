@@ -9,15 +9,18 @@ package designpattern.decorator;
  *
  * @author Brian
  */
-public class miegoreng implements makanan{
+public class miegoreng extends makananDecorator {
+    public miegoreng(makanan decoratedMakanan) {
+        this.decoratedMakanan = decoratedMakanan;
+    }
     
     @Override
     public String getDeskripsi() {
-        return "Mie Goreng";
+        return decoratedMakanan.getDeskripsi() + "Mie Goreng";
     }
     
     @Override
     public int harga() {
-        return 8000;
+        return decoratedMakanan.harga() + 8000;
     }
 }

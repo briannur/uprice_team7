@@ -17,10 +17,13 @@ import designpattern.decorator.miegoreng;
 import designpattern.decorator.telorceplok;
 import designpattern.decorator.makanan;
 import designpattern.decorator.capcay;
+import designpattern.decorator.emptyplate;
 import designpattern.decorator.nugget;
 import designpattern.decorator.sosis;
 
 import java.util.Scanner;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -43,34 +46,44 @@ public class CLI {
         // command
         cashierMachineCommand openTray = new cashierMachineCommand(cashier);
         printerCommand printout = new printerCommand(print);
+        
+        // new object makanan buat makanan :U
+        makanan Makanan = new emptyplate();
 
         // call dummyData
-//        dummyData data = new dummyData();
-//        String[][] menu = data.getMenu();
-//        String[][] topping = data.getTopping();
+        /*
+        dummyData data = new dummyData();
+        String[][] menu = data.getMenu();
+        String[][] topping = data.getTopping();
+        */
         
         // print table daftar menu
         System.out.println("-------DAFTAR MENU-------");
         dummyData.menuList();
         
+        // new object in buat scanner
         Scanner in = new Scanner(System.in);
-        System.out.print("your choice:");
         
+        // mintak input user
+        System.out.print("your choice: ");
         String choice = in.nextLine();
+        
+        // perulangan untuk memproses inputan user
         if (null != choice) switch (choice) {
-            case "001":{
-                makanan Makanan = new nasigoreng();
+            case "1":{
+                  Makanan = new nasigoreng(Makanan);
                     break;
                 }
-            case "002":{
-                makanan Makanan = new miegoreng();
+            case "2":{
+                Makanan = new miegoreng(Makanan);
                     break;
                 }
-            case "003":{
-                makanan Makanan = new capcay();
+            case "3":{
+                Makanan = new capcay(Makanan);
                     break;
                 }
             default:
+                JOptionPane.showMessageDialog(new JFrame(), "What?", "Dude..?", JOptionPane.ERROR_MESSAGE);
                 break;
         }
         
@@ -78,14 +91,40 @@ public class CLI {
         System.out.println("-------DAFTAR TOPPING-------");
         dummyData.toppingList();
         
-        System.out.print("your choice:");
-        
+        // mintak input user lagi
+        System.out.print("your choice: ");
         choice = in.nextLine();
         
-    }
-    
-    public String clearScreen() {
-        char esc = 27;
-        return (esc + "[2J");
+        String[] arrOfStr = null;
+        
+        if (null != choice) {
+            arrOfStr = choice.split("");
+        }
+        
+        // perulangan untuk memproses inputan user
+        for (String a : arrOfStr) {
+            switch (a) {
+                case "1":{
+                      Makanan = new telorceplok(Makanan);
+                        break;
+                    }
+                case "2":{
+                    Makanan = new telordadar(Makanan);
+                        break;
+                    }
+                case "3":{
+                    Makanan = new nugget(Makanan);
+                        break;
+                    }
+                case "4":{
+                    Makanan = new sosis(Makanan);
+                        break;
+                    }
+                default:
+                    break;
+            }
+        }
+        
+        System.out.println(Makanan.getDeskripsi() + " - Rp." + Makanan.harga() + "\n");
     }
 }

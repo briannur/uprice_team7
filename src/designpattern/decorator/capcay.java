@@ -9,15 +9,18 @@ package designpattern.decorator;
  *
  * @author Brian
  */
-public class capcay implements makanan{
+public class capcay extends makananDecorator {
+    public capcay(makanan decoratedMakanan) {
+        this.decoratedMakanan = decoratedMakanan;
+    }
     
     @Override
     public String getDeskripsi() {
-        return "Capcay";
+        return decoratedMakanan.getDeskripsi() + "Capcay";
     }
     
     @Override
     public int harga() {
-        return 12000;
+        return decoratedMakanan.harga() + 12000;
     }
 }

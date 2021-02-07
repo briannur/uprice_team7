@@ -25,16 +25,16 @@ public class dummyData {
     public static void menuList() {
         final PrettyPrinter printer = new PrettyPrinter(out);
         printer.print(new String[][] {
-        new String[] {"ID", "MENU", "PRICE"},
-        new String[] {" 001 ", " Nasi Goreng ", " Rp. 10000 "},
-        new String[] {" 002 ", " Mie Goreng ", " Rp. 8000 "},
-        new String[] {" 003 ", " Capcay ", " Rp. 12000 "},
+        new String[] {"CODE", "MENU", "PRICE"},
+        new String[] {" 1 ", " Nasi Goreng ", " Rp. 10000 "},
+        new String[] {" 2 ", " Mie Goreng ", " Rp. 8000 "},
+        new String[] {" 3 ", " Capcay ", " Rp. 12000 "},
         });
     }
     
     private final String[][] topping = {
-        {"T01", "Telor Ceplok", "Rp. 4000"},
-        {"T02", "Telor Dadar", "Rp. 4000"},
+        {"T01", "Telor Ceplok", "Rp. 3000"},
+        {"T02", "Telor Dadar", "Rp. 3000"},
         {"T03", "Nugget", "Rp. 7000"},
         {"T04", "Sosis", "Rp. 7000"}
     };
@@ -46,11 +46,11 @@ public class dummyData {
     public static void toppingList() {
         final PrettyPrinter printer = new PrettyPrinter(out);
         printer.print(new String[][] {
-        new String[] {"ID", "MENU", "PRICE"},
-        new String[] {" T01 ", " Telor Ceplok ", " Rp. 4000 "},
-        new String[] {" T02 ", " Telor Dadar ", " Rp. 4000 "},
-        new String[] {" T03 ", " Nugget ", " Rp. 7000 "},
-        new String[] {" T04 ", " Sosis ", " Rp. 7000 "},
+        new String[] {"CODE", "MENU", "PRICE"},
+        new String[] {" 1 ", " Telor Ceplok ", " Rp. 3000 "},
+        new String[] {" 2 ", " Telor Dadar ", " Rp. 3000 "},
+        new String[] {" 3 ", " Nugget ", " Rp. 7000 "},
+        new String[] {" 4 ", " Sosis ", " Rp. 7000 "},
         });
     }
 }

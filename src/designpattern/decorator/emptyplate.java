@@ -9,18 +9,15 @@ package designpattern.decorator;
  *
  * @author Brian
  */
-public class nugget extends makananDecorator {
-    public nugget(makanan decoratedMakanan) {
-        this.decoratedMakanan = decoratedMakanan;
-    }
+public class emptyplate implements makanan {
     
     @Override
     public String getDeskripsi() {
-        return decoratedMakanan.getDeskripsi() + ", nugget";
+        return "";
     }
     
     @Override
     public int harga() {
-        return decoratedMakanan.harga() + 7000;
+        return 0;
     }
 }
